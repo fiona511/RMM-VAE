@@ -1,0 +1,24 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+---
+original_dim: 286
+inputdim1: 11
+inputdim2: 26
+
+latent_dim: 10
+
+dim_layer1: 128
+dim_layer2: 64
+dim_layer3: 32
+activation_function: 'tanh'
+
+filepath: "plots/r-vae/v2/"
+
+batch_size: 64
+epochs: 100
+
+reconstruction_loss_factor: 0.1
+
+
