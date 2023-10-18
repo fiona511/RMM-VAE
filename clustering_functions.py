@@ -315,3 +315,26 @@ def calculate_conditional_probability_change(threshold_matrix, kmeans, compariso
         print('invalid entry for diff_or_quot')
     
     return(ds)
+
+
+def calculate_conditional_probability_change_label(threshold_matrix, labels, comparison, shift_value=0):
+    
+    # add cluster assignment to threshold vector
+    threshold_matrix_label = threshold_matrix.assign_coords(label=("time", np.roll(labels, shift_value)))
+
+    # probability conditional on weather type
+    n_wr = threshold_matrix_label.groupby('label').mean()
+
+    # overall probability
+    n_total = threshold_matrix_label.mean(dim='time')
+    
+    if comparison=='difference':
+        ds = n_wr - n_total
+    elif comparison=='ratio':
+        ds = n_wr/n_total
+    elif comparison=='none':
+        ds = n_wr
+    else:
+        print('invalid entry for diff_or_quot')
+    
+    return(ds)
