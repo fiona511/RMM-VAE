@@ -1,0 +1,20 @@
+name: base
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9.15
+  - numpy-base=1.23.5
+  - xarray=2022.11.0
+  - pandas=1.5.2
+  - matplotlib=3.5.2
+  - cartopy=0.21.1
+  - seaborn=0.12.2
+  - pip
+  - pip:
+      - numpy==1.21.6
+      - scipy==1.8.0
+      - scikit-learn==1.5.2
+      - tensorflow==2.14.0
+      - keras==2.14.0
+      - climpred==2.3.0
